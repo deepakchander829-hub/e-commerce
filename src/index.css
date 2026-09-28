@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+
+@layer utilities {
+  .my-small-text {
+    font-size: 10px;
+  }
+}
