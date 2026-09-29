@@ -1,33 +1,12 @@
 
 
 
-
-
-
-
-
 const Addtocardsection = () => {
-    return(
-        <>
-        <div className=" flex ">
+    return (
 
-            <div className=" w-[70%] ">
-                  
-                  <h1 className="text-3xl text-center">
+        <h1>this is a add to cart page</h1>
 
-                  this is a addto cart page
-             </h1>
+    );
+};
 
-
-
-            </div>
-
-
-        </div>
-        
-        
-        </>
-    )
-}
-
-export default Addtocardsection
+export default Addtocardsection;

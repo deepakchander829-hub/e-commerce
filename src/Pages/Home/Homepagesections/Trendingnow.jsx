@@ -1,6 +1,9 @@
 
 
+import { useState, } from "react";
 import ProductCard from "../../../Components/Productcard";
+
+import Loadmorebtn from "../../../Components/Loadmorebtn";
 
 const cardData = [
   {
@@ -365,93 +368,116 @@ const cardData = [
   },
 ];
 
-const handleProductaddtocart = (id) => {
-  alert(`Product ID: ${id}`);
-};
-
-
-const  Trendingnow =() => {
-    return (
 
 
 
-<section className="container-fluid  ps-3 py-3 px-lg-5 py-lg-5" aria-label="Trending products">
+const Trendingnow = () => {
 
-  <div className="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-3">
-    <div>
-      <h2 className="font-extrabold text-2xl md:text-3xl text-[#17178F] mb-1">
-        Trending Now
-      </h2>
+  const [displayproducts, setdisplayproducts] = useState(6);
+  const visiblecards = cardData.slice(0, displayproducts);
 
-      <p className="text-[#777777] text-sm mb-0">
-        Popular pieces customers are loving right now.
-      </p>
-    </div>
 
-    <a
-      href="shop.html"
-      className="btn bg-white border border-[#E7E6F6] text-[#17178F] rounded-xl font-semibold text-sm px-3"
-    >
-      View All →
-    </a>
-  </div>
+  const Handloadmore = () => {
+    setdisplayproducts(displayproducts + 4);
 
-  <div className="d-flex flex-wrap align-items-center gap-2 mb-2">
-    <p
-      id="searchInfo"
-      className="text-[#777777] text-sm mb-0"
-      aria-live="polite"
-    ></p>
 
-    <button
-      type="button"
-      id="btnClearSearch"
-      className="btn bg-white border border-[#E7E6F6] text-[#17178F] rounded-xl font-semibold text-xs px-2 py-1 d-none"
-      aria-label="Clear search results"
-    >
-      Clear Search
-    </button>
-  </div>
 
-  <div
-    id="trendingGrid"
-    className="row g-3 g-md-4 row-cols-2 row-cols-md-3 row-cols-lg-5"
-  >
+  }
 
 
 
 
 
 
-{cardData.map(card => (
-    <ProductCard key={card.id} id ={card.id}  image={card.image} title={card.title} brand={card.brand}  rating={card.rating} reviews={card.reviews} price={card.price} oldPrice={card.oldPrice} discount={card.discount}  handleProductaddtocart ={handleProductaddtocart} />
-))  }
-
-    
-
-    
-
-  </div>
-
-  <div id="trendingEmpty" className="d-none text-center py-4">
-    <i
-      className="bi bi-search text-[#C0BFF9] text-[2.5rem]"
-      aria-hidden="true"
-    ></i>
-
-    <p className="font-semibold text-[#17178F] mt-2 mb-1">
-      No trending products found.
-    </p>
-
-    <p className="text-[#777777] text-sm mb-0">
-      Try a different search term.
-    </p>
-  </div>
-
-</section>
+  return (
 
 
-        
-)       
+
+    <section className="container-fluid  ps-3 py-3 px-lg-5 py-lg-5" aria-label="Trending products">
+
+      <div className="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-3">
+        <div>
+          <h2 className="font-extrabold text-2xl md:text-3xl text-[#17178F] mb-1">
+            Trending Now
+          </h2>
+
+          <p className="text-[#777777] text-sm mb-0">
+            Popular pieces customers are loving right now.
+          </p>
+        </div>
+
+        <a
+          href="shop.html"
+          className="btn bg-white border border-[#E7E6F6] text-[#17178F] rounded-xl font-semibold text-sm px-3"
+        >
+          View All →
+        </a>
+      </div>
+
+      <div className="d-flex flex-wrap align-items-center gap-2 mb-2">
+        <p
+          id="searchInfo"
+          className="text-[#777777] text-sm mb-0"
+          aria-live="polite"
+        ></p>
+
+        <button
+          type="button"
+          id="btnClearSearch"
+          className="btn bg-white border border-[#E7E6F6] text-[#17178F] rounded-xl font-semibold text-xs px-2 py-1 d-none"
+          aria-label="Clear search results"
+        >
+          Clear Search
+        </button>
+      </div>
+
+      <div
+        id="trendingGrid"
+        className="row g-3 g-md-4 row-cols-2 row-cols-md-3 row-cols-lg-5"
+      >
+
+
+
+
+
+
+        {visiblecards.map(card => (
+          <ProductCard key={card.id} id={card.id} image={card.image} title={card.title} brand={card.brand} rating={card.rating} reviews={card.reviews} price={card.price} oldPrice={card.oldPrice} discount={card.discount} />
+        ))}
+
+
+
+
+
+      </div>
+
+      <div className="container text-center mt-5">
+
+        <Loadmorebtn loadmoreHandler={Handloadmore} />
+
+
+      </div>
+
+
+      <div id="trendingEmpty" className="d-none text-center py-4">
+        <i
+          className="bi bi-search text-[#C0BFF9] text-[2.5rem]"
+          aria-hidden="true"
+        ></i>
+
+        <p className="font-semibold text-[#17178F] mt-2 mb-1">
+          No trending products found.
+        </p>
+
+        <p className="text-[#777777] text-sm mb-0">
+          Try a different search term.
+        </p>
+      </div>
+
+    </section>
+
+
+
+  )
 }
 export default Trendingnow; 

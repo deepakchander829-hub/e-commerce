@@ -26,31 +26,31 @@ const shoppingBenefits = [
 const Servicefeacture = () => {
   return (
 
-  <section
-  className="container-fluid ps-2 px-lg-5"
-  aria-label="Shopping benefits"
->
-
-  
-  <div className="row g-3 g-lg-4">
-
-    
-
-            {shoppingBenefits.map(function (benefit, index) {
-                return (
-                    <div className="col-6 col-lg-3">
-                        <Faqbtn
-                        icon={benefit.icon}
-                        title={benefit.title}
-                        description={benefit.description}
-                        key={index}
-                        />
-                    </div>
-                );
-            })}
+    <section
+      className="container-fluid ps-2 px-lg-5"
+      aria-label="Shopping benefits"
+    >
 
 
-        </div>
+      <div className="row g-3 g-lg-4">
+
+
+
+        {shoppingBenefits.map(function (benefit, index, id) {
+          return (
+            <div className="col-6 col-lg-3">
+              <Faqbtn
+                icon={benefit.icon}
+                title={benefit.title}
+                description={benefit.description}
+                key={id}
+              />
+            </div>
+          );
+        })}
+
+
+      </div>
     </section>
   );
 };

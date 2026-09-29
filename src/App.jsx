@@ -7,6 +7,8 @@ import Newarrival from "./Pages/Newarrival/Newarrival";
 import Sale from "./Pages/Sale/Sale";
 import Contact from "./Pages/Contact/Contact";
 import Addtocart from "./Pages/Addtocartpage/Addtocart";
+import Profile from "./Pages/Profile/Profile";
+import Wishlist from "./Pages/Wishlist/Whishlist";
 
 
 const App = () => {
@@ -20,7 +22,9 @@ const App = () => {
         <Route path="/sale" element={<Sale />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/addtocart" element={<Addtocart />} />
-        
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/Wishlist" element={<Wishlist />} />
+
       </Routes>
     </BrowserRouter>
   );

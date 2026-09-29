@@ -1,15 +1,16 @@
 
+import Addtocartbtn from "./Addtocartbtn";
 
 
 
-const  Productcard = (props) => {
+const Productcard = (props,) => {
 
 
-    return (
+  return (
 
-      
 
-            <div className="col">
+
+    <div className="col">
       <article className="h-100 bg-white border border-[#E7E6F6] rounded-2xl overflow-hidden d-flex flex-column">
 
         <div className="position-relative">
@@ -71,30 +72,29 @@ const  Productcard = (props) => {
               61% OFF
             </span>
           </p>
-           <div className="mt-auto pt-1 d-flex gap-1">
-           
-       
-           <button type="button" onClick={() => props.handleProductaddtocart(props.id)}
+          <div className="mt-auto pt-1 d-flex gap-1">
 
- className="btn !bg-primary !text-white !px-3 !py-2 !d-flex !align-items-center !gap-2 !rounded-pill">
-            <i className="bi bi-cart3"></i> Add to Cart
-          </button>     
 
-          
+
+            <Addtocartbtn
+              handleProductaddtocart={props.handleProductaddtocart}
+              id={props.id}
+            />
+
           </div>
 
 
-    
+
 
         </div>
       </article>
     </div>
 
-    
-    )
+
+  )
 }
 
 
 
 
-export  default Productcard;     
+export default Productcard;     
